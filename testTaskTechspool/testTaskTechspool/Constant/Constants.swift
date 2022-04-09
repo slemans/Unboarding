@@ -14,4 +14,6 @@ class Constants {
         "Per sfruttare al massimo l’app, puoi condividerci latua posizione?"]
     static let arrayTextDescription = ["PRONTO?", "PROMOZIONI?", "POSIZIONE?"]
     static let arrayTextImages = ["1.png", "2.png", "3.png"]
+    static let buttonNext = ["INIZIA", "INIZIA", "CLOSE"]
 }
+

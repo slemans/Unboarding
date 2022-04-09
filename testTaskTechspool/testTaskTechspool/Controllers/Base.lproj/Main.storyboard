@@ -32,11 +32,40 @@
                     </view>
                     <connections>
                         <outlet property="holderView" destination="UE3-hM-eVl" id="fQw-p9-0ha"/>
+                        <segue destination="Uwb-al-g7e" kind="show" identifier="segueNext" id="mPE-HT-0Nf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-23.188405797101453" y="77.678571428571431"/>
+        </scene>
+        <!--Next View Controller-->
+        <scene sceneID="Twl-pR-aJr">
+            <objects>
+                <viewController storyboardIdentifier="nextView" id="Uwb-al-g7e" customClass="NextViewController" customModule="testTaskTechspool" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mat-q1-kqb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="END" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cq0-u6-elh">
+                                <rect key="frame" x="163" y="416" width="88" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="k6Y-7d-X6Q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cq0-u6-elh" firstAttribute="centerX" secondItem="k6Y-7d-X6Q" secondAttribute="centerX" id="9jN-gX-fS8"/>
+                            <constraint firstItem="cq0-u6-elh" firstAttribute="centerY" secondItem="k6Y-7d-X6Q" secondAttribute="centerY" id="vXE-kd-bh2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="52s-eU-hBB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ei2-bh-59a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="874" y="78"/>
         </scene>
     </scenes>
     <resources>
