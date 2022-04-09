@@ -15,17 +15,15 @@ class ViewController: UIViewController, UIScrollViewDelegate {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
+        startSetting()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        startSetting()
+        createPageForSlider()
     }
 
-    func startSetting() {
-        holderView.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
-        scrollView.frame = holderView.bounds
-        holderView.addSubview(scrollView)
+    
+    private func createPageForSlider() {
         for x in 0..<Constants.arrayTextTitle.count {
             let pageView = UIView(frame: CGRect(x: CGFloat(x) * holderView.frame.size.width, y: 0, width: holderView.frame.size.width, height: holderView.frame.size.height))
             
@@ -46,7 +44,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             let labelSmallDescription = createUILabel(1, #colorLiteral(red: 0.8784313725, green: 0.8784313725, blue: 0.8784313725, alpha: 1), Constants.arrayTextDescription[x], UIFont.boldSystemFont(ofSize: 24.0))
 
             let buttonNextSlider = createUIBotton(Constants.buttonNext[x], x, #selector(didTapButton(_:)))
-            let buttonBeforeSlider = createUIBotton("REFIUTA", x, #selector(didDounButton(_:)))
+            let buttonBeforeSlider = createUIBotton("REFIUTA", x, #selector(didDownButton(_:)))
 
             if x == 0 {
                 buttonBeforeSlider.isHidden = true
@@ -82,8 +80,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 buttonBeforeSlider.widthAnchor.constraint(equalTo: buttonNextSlider.widthAnchor, multiplier: 1)
             ])
         }
-        scrollView.contentSize = CGSize(width: holderView.frame.size.width * CGFloat(Constants.arrayTextTitle.count), height: 0)
-        scrollView.isPagingEnabled = true
+        
     }
     @objc func didTapButton(_ button: UIButton) {
         if button.tag < Constants.arrayTextTitle.count - 1 {
@@ -95,19 +92,29 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             singInVC.modalPresentationStyle = .fullScreen
             present(singInVC, animated: true)
         }
-        
     }
-    func animationView(_ tip: String){
+    
+    @objc func didDownButton(_ button: UIButton) {
+        scrollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(button.tag - 1), y: 0), animated: true)
+        animationView("squeezeLeft")
+    }
+    
+    private func startSetting(){
+        view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
+        holderView.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
+        scrollView.frame = holderView.bounds
+        holderView.addSubview(scrollView)
+        scrollView.contentSize = CGSize(width: holderView.frame.size.width * CGFloat(Constants.arrayTextTitle.count), height: 0)
+        scrollView.isPagingEnabled = true
+    }
+    
+    private func animationView(_ tip: String){
         holderView.curve = "spring"
         holderView.animation = tip
         holderView.duration = 1.3 // продолжительность
         holderView.force = 1.1 // сила
         holderView.delay = 0.2
         holderView.animate()
-    }
-    @objc func didDounButton(_ button: UIButton) {
-        scrollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(button.tag - 1), y: 0), animated: true)
-        animationView("squeezeLeft")
     }
 }
 

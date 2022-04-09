@@ -9,7 +9,7 @@ import UIKit
 
 extension ViewController{
     
-    func createStackView(_ axis: NSLayoutConstraint.Axis,
+      func createStackView(_ axis: NSLayoutConstraint.Axis,
                          _ spacing: CGFloat,
                          _ backgroundColor: UIColor?,
                          _ translatesAutoresizingMaskIntoConstraints: Bool,
