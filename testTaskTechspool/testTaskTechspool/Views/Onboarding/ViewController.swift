@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import Spring
 
 
 class ViewController: UIViewController, UIScrollViewDelegate {
-    @IBOutlet var holderView: UIView!
+    @IBOutlet var holderView: SpringView!
     let scrollView = UIScrollView()
-
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
@@ -19,9 +20,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         startSetting()
-
-
-
     }
 
     func startSetting() {
@@ -90,16 +88,26 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @objc func didTapButton(_ button: UIButton) {
         if button.tag < Constants.arrayTextTitle.count - 1 {
             scrollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(button.tag + 1), y: 0), animated: true)
+            animationView("squeezeRight")
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let singInVC = storyboard.instantiateViewController(identifier: "nextView")
             singInVC.modalPresentationStyle = .fullScreen
             present(singInVC, animated: true)
         }
+        
+    }
+    func animationView(_ tip: String){
+        holderView.curve = "spring"
+        holderView.animation = tip
+        holderView.duration = 1.3 // продолжительность
+        holderView.force = 1.1 // сила
+        holderView.delay = 0.2
+        holderView.animate()
     }
     @objc func didDounButton(_ button: UIButton) {
         scrollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(button.tag - 1), y: 0), animated: true)
-
+        animationView("squeezeLeft")
     }
 }
 
