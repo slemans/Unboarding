@@ -13,9 +13,7 @@
 </li>
 </ul>
 <h2>Demo</h2>
-<div style="text-align: centre">
-<img style="height: 450px" src="https://i.ibb.co/xfXd6mq/ezgif-4-c2387f1186.gif">
-  </div>
+ <img style="height: 450px; margin: auto; display: block;" src="https://i.ibb.co/xfXd6mq/ezgif-4-c2387f1186.gif">
 <h2>Contents</h2>
 <ul>
   <li>UIKit components</li>
