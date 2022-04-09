@@ -12,7 +12,7 @@
   <li>Макет: https://drive.google.com/open?id=15wgr6msyrQK2ohgu9-e0m-fNg6nuNvdU
 </li>
 </ul>
-<h2>Demo</h2>
+<h2>Demo Unboarding</h2>
  <img style="height: 450px; margin: auto; display: block;" src="https://i.ibb.co/xfXd6mq/ezgif-4-c2387f1186.gif">
 <h2>Contents</h2>
 <ul>
